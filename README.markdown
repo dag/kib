@@ -9,6 +9,10 @@ Instead there are "models" in the form of YAML documents and optionally separate
 There is also a "router" which will build your application from your resources with the routes of your chosing.
 This makes it all highly flexible.
 
+Another design goal is to not mix formats in files, unlike e.g. Webby.
+This is beneficial for things like syntax highlighting, but means more files and separation.
+Separation however has benefits in itself, and many files shouldn't be a problem with generators and good editors.
+
 ## Love needed
 
 * Split into namespaced libraries and generators
@@ -16,4 +20,4 @@ This makes it all highly flexible.
 * Use modification stamps to speed up rebuilds
 * More template engines for layouts, views and texts (maybe pluggable)
 * Partial views
-* Perhaps don't render underscored sass sheets
+* Build to a git branch like gh-pages, or a submodule linking to user.github.com
