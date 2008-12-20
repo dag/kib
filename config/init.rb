@@ -1,7 +1,5 @@
 require 'compass'
 
-@sass = {
-  :load_paths =>
-    Compass::Frameworks::ALL.map {|f| f.stylesheets_directory } << "stylesheets"
-}
-
+Compass::Frameworks::ALL.each do |directory|
+  Sass::Plugin.options[:load_paths] << directory.stylesheets_directory
+end

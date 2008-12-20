@@ -2,19 +2,23 @@ $:.insert(0, "lib")
 
 require 'rubygems'
 require 'sass'
+require 'sass/plugin'
 require 'resource'
 require 'builder'
 require 'rack'
+
+Sass::Plugin.options = {
+  :load_paths => ["stylesheets"],
+  :template_location => "stylesheets",
+  :css_location => "public/stylesheets"
+}
+
 require 'config/init.rb'
 
-task :build do
-  @sass ||= {}
-  Dir["stylesheets/**/*"].each do |style|
-    File.makedirs("public/#{File.dirname(style)}")  
-    File.open("public/stylesheets/#{style[12..-6]}.css", "w") do |f|
-      f.write(Sass::Engine.new(File.read(style), @sass).render)
-    end
-  end
+directory "public/stylesheets"
+
+task :build => "public/stylesheets" do
+  Sass::Plugin.update_stylesheets
   Builder.new.instance_eval(File.read("config/router.rb"))
 end
 
@@ -37,4 +41,3 @@ end
 task :serve do
   Rack::Handler::WEBrick.run(Static.new, :Port => (ENV["PORT"] || 5000))
 end
-
