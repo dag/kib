@@ -1,0 +1,10 @@
+some-permalink:
+  title: Some Permalink
+
+another-post:
+  title: Yet another post, yey!
+  
+inline-body:
+  title: Inline body
+  body: |
+    <p>Hi from Yaml (:</p>
