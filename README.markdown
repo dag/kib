@@ -15,7 +15,9 @@ Separation however has benefits in itself, and many files shouldn't be a problem
 
 ## Love needed
 
-* Split into namespaced libraries and generators
+* Assets overlay
+* Better Resource model
+* Route macros
 * Helper methods
 * Use modification stamps to speed up rebuilds
 * More template engines for layouts, views and texts (maybe pluggable)

@@ -4,10 +4,4 @@
   %head
     %title Hi!
     %link{:href => "/stylesheets/application.css", :type => "text/css", :media => "screen", :rel => "stylesheet"}
-  %body
-    = yield
-    %ul
-      %li
-        %a{:href => "/"} Start
-      %li
-        %a{:href => "/posts"} Posts
+  %body= yield

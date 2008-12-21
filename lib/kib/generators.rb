@@ -7,4 +7,5 @@ module Kib
   end
 end
 
+require 'kib/generators/site'
 require 'kib/generators/resource'
