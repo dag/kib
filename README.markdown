@@ -19,7 +19,6 @@ Separation however has benefits in itself, and many files shouldn't be a problem
 * Better Resource model
 * Route macros
 * Helper methods
-* Use modification stamps to speed up rebuilds
 * More template engines for layouts, views and texts (maybe pluggable)
 * Partial views
 * Build to a git branch like gh-pages, or a submodule linking to user.github.com

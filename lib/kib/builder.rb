@@ -23,13 +23,32 @@ module Kib
     end
     
     def make(resource, view, opts={})
-      layout = opts.delete(:layout) || :application
-      res = Haml::Engine.new(File.read("layouts/#{layout}.haml")).to_html(self) do
-        Haml::Engine.new(File.read("resources/#{resource}/views/#{view}.haml")).to_html(self)
-      end
+      layout = "layouts/#{opts.delete(:layout) || :application}.haml"
+      view = "resources/#{resource}/views/#{view}.haml"
       path = "public/#@path/index.html"
       opts.each do |key, value|
         path.gsub!(":#{key}", value)
+      end
+      unless File.file?(path)
+        write(layout, view, path)
+      else
+        mtime = File.mtime(path)
+        files = Dir["resources/#{resource}/texts/*"]
+        files += ["resources/#{resource}/meta.yml", layout, view]
+        files.each do |file|
+          if File.mtime(file) > mtime
+            write(layout, view, path)
+            break
+          end
+        end
+      end
+    end
+    
+    private
+    
+    def write(layout, view, path)
+      res = Haml::Engine.new(File.read(layout)).to_html(self) do
+        Haml::Engine.new(File.read(view)).to_html(self)
       end
       File.makedirs(File.dirname(path))
       File.open(path, "w") do |f|
