@@ -27,8 +27,8 @@ create "/#{name}" do
 end
 
 create "/#{name}/:id" do
-  @#{name}.each do |@#{name.singular}|
-    make :#{name}, :show, :id => @#{name.singular}.id
+  @#{name}.each do |id, @#{name.singular}|
+    make :#{name}, :show, :id => id
   end
 end
 

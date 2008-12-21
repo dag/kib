@@ -7,11 +7,11 @@ module Kib
   class Builder
     def initialize
       Dir["resources/*"].each do |resource|
-        res = []
-        meta = YAML.load_file("#{resource}/meta.yml") rescue []
+        res = {}
+        meta = YAML.load_file("#{resource}/meta.yml") rescue {}
         meta.each do |id, meta|
           texts = Dir["#{resource}/texts/#{id}.*"]
-          res << Kib::Resource.new(File.basename(resource).to_sym, id, meta, texts)
+          res[id] = Kib::Resource.new(File.basename(resource).to_sym, id, meta, texts)
         end
         instance_variable_set "@#{File.basename(resource)}".to_sym, res
       end

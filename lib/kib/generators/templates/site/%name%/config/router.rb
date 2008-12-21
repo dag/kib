@@ -1,5 +1,5 @@
 create "/" do
-  @page = @pages.select {|p| p.id == "start" }.first
+  @page = @pages["start"]
   make :pages, :show, :id => @page.id
 end
 

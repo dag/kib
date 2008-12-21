@@ -1,5 +1,5 @@
 %h1 <%= name.capitalize %>
-- for <%= name.singular %> in @<%= name %>
+- @<%= name %>.each do |id, <%= name.singular %>|
   %h2
-    %a{:href => "/<%= name %>/#{<%= name.singular %>.id}"}&= <%= name.singular %>.title
+    %a{:href => "/<%= name %>/#{id}"}&= <%= name.singular %>.title
   = <%= name.singular %>.body
