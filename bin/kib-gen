@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'kib/generators'
+
+Kib::Generators.run_cli(Dir.pwd, $0, "0.1", ARGV)
