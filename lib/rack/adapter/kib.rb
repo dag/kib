@@ -8,7 +8,7 @@ module Rack
       end
 
       def call(env)
-        sh "rake"
+        sh "rake -s"
         unless ::File.file?("public/#{env["PATH_INFO"]}")
           env["PATH_INFO"] = (env["PATH_INFO"].split("/") << "index.html").join("/")
         end
