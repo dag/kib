@@ -1,3 +1,4 @@
+require 'kib/helpers'
 require 'kib/resource'
 require 'yaml'
 require 'haml'
@@ -5,6 +6,8 @@ require 'ftools'
 
 module Kib
   class Builder
+    include Kib::Helpers
+    
     def initialize
       Dir["resources/*"].each do |resource|
         res = {}

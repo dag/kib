@@ -13,12 +13,19 @@ Another design goal is to not mix formats in files, unlike e.g. Webby.
 This is beneficial for things like syntax highlighting, but means more files and separation.
 Separation however has benefits in itself, and many files shouldn't be a problem with generators and good editors.
 
+## How
+
+    $ kib-gen site kiblog
+    $ cd kiblog
+    $ kib-gen resource posts
+    $ rake serve
+
 ## Love needed
 
 * Assets overlay
 * Better Resource model
 * Route macros
-* Helper methods
+* Mount aware helpers (don't assume /)
 * More template engines for layouts, views and texts (maybe pluggable)
 * Partial views
 * Build to a git branch like gh-pages, or a submodule linking to user.github.com
