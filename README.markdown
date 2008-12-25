@@ -23,9 +23,10 @@ Separation however has benefits in itself, and many files shouldn't be a problem
 ## Love needed
 
 * Assets overlay
-* Better Resource model
+* Use DataMapper for models with the in\_memory adapter
 * Route macros
 * Mount aware helpers (don't assume /)
 * More template engines for layouts, views and texts (maybe pluggable)
 * Partial views
 * Build to a git branch like gh-pages, or a submodule linking to user.github.com
+* Maybe Kib could be built on top of Merb/Rails3 as a plugin?
